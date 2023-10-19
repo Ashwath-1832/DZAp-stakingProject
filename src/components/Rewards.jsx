@@ -17,8 +17,8 @@ function Rewards() {
   }
 
   useEffect(() => {
-    stakedDataFn();
-  }, []);
+    if (address) stakedDataFn();
+  }, [address]);
 
   const OnRewardsClick = () => {
     claim();

@@ -31,9 +31,11 @@ function Funds() {
   }
 
   useEffect(() => {
-    stakedDataFn();
-    getBalanceFn();
-  }, []);
+    if (address) {
+      stakedDataFn();
+      getBalanceFn();
+    }
+  }, [address]);
 
   const OnStakeClick = () => {
     stakeContractCall(address, inputAmount);

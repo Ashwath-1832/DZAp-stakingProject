@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getStakeDetails, getTotalStakedData } from "../utils/getStakedData";
+import { useAccount } from "wagmi";
 
 function Details() {
+  const { address } = useAccount();
   const [apy, setApy] = useState(0);
   const [stakedData, setStakedData] = useState();
 
@@ -16,9 +18,11 @@ function Details() {
   }
 
   useEffect(() => {
-    apyDataFn();
-    getTotalStakedDateFn();
-  }, []);
+    if (address) {
+      apyDataFn();
+      getTotalStakedDateFn();
+    }
+  }, [address]);
   return (
     <div className="detailsContainer">
       <div className="detailsSection">
