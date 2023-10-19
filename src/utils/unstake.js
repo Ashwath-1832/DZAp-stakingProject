@@ -1,14 +1,6 @@
-import { ethers } from "ethers";
-import { STAKING_CONTRACT_ADDRESS } from "../constants";
-import StakeAbi from "../abi/staking.json";
-import { getSigner } from "./signer";
+import { stakeContract } from "./contract";
 
 export const unstake = async () => {
-  const stakeContract = new ethers.Contract(
-    STAKING_CONTRACT_ADDRESS,
-    StakeAbi,
-    await getSigner()
-  );
   try {
     const tx = await stakeContract.unstake();
     tx.wait(1);
