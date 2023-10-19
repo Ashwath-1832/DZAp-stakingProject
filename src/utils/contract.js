@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { StakeAbi } from "../abi/staking.json";
+import StakeAbi from "../abi/staking.json";
 import { STAKING_CONTRACT_ADDRESS } from "../constants";
 import { getSigner } from "./signer";
 
