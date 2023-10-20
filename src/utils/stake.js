@@ -20,7 +20,7 @@ export const stakeContractCall = async (address, amount) => {
     await tokenContract.approve(STAKING_CONTRACT_ADDRESS, amount);
   }
   try {
-    const tx = await stakeContract.stake(parseEther(amount), "0x");
+    const tx = await stakeContract.stake(ethers.parseUnits(amount, 18), "0x");
     tx.wait(1);
     alert(`You have successfully stake: ${amount}`);
   } catch (err) {
